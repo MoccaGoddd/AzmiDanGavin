@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-200">
+    <div class="bg-gray-800 py-5">
+      <h1 class="text-center text-5xl text-white font-bold">
+        BIODATA KELOMPOK
+      </h1>
+    </div>
+
+    <div class="flex">
+      <div class="bg-gray-700 w-1/4 h-screen p-5 overflow-y-auto">
+        <h1 class="text-center text-xl font-bold text-white mb-4">
+          NAMA ANGGOTA
+        </h1>
+        <ul>
+          <li class="mb-2">
+            <button
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full"
+              onclick="showBio('azmi')"
+            >
+              Azmi Nailal Hadi
+            </button>
+          </li>
+          <li class="mb-2">
+            <button
+              class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full w-full"
+              onclick="showBio('gavin')"
+            >
+              Gavin Adlan
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bg-gray-400 w-3/4 h-screen overflow-y-auto">
+        <div id="biodata" class="p-10 flex"></div>
+      </div>
+    </div>
+
+    <script>
+      function showBio(nama) {
+        var biodata = {
+          azmi: {
+            nama: "Azmi Nailal Hadi",
+            nim: 20220801159,
+            jurusan: "Teknik Informatika",
+            umur: 19,
+            alamat: "Jakarta, Indonesia",
+            hobi: "Mencari Duit",
+            foto: "https://media.licdn.com/dms/image/D5603AQELy_9hrwx7Lw/profile-displayphoto-shrink_200_200/0/1711196284126?e=1717632000&v=beta&t=hP8Dm_Ms2e1UWK5nZJDibcF0rvzwsTO9vF2-D8ssxzU",
+          },
+          gavin: {
+            nama: "Gavin Adlan",
+            nim: false,
+            jurusan: "Teknik Informatika",
+            umur: 20,
+            alamat: "Jakarta, Indonesia",
+            hobi: "Ngoding",
+            foto: "https://p16-va.lemon8cdn.com/tos-maliva-v-ac5634-us/oY8Wgy2SiwtyBiyD7AEEAogU8fA6B4Bx6IHP2M~tplv-tej9nj120t-origin.webp",
+          },
+        };
+
+        var data = biodata[nama];
+
+        document.getElementById("biodata").innerHTML = `
+        <div class="w-1/4">
+          <h2 class="text-3xl font-bold mb-4">${data.nama}</h2>
+          <p class="mb-2">NIM : ${data.nim}</p>
+          <p class="mb-2">Jurusan : ${data.jurusan}</p>
+          <p class="mb-2">Umur : ${data.umur}</p>
+          <p class="mb-2">Alamat : ${data.alamat}</p>
+          <p class="mb-2">Hobi : ${data.hobi}</p>
+        </div>
+        <div>
+          <img src="${data.foto}" alt="Foto ${data.nama}" class="w-64 h-auto">
+        </div>
+      `;
+      }
+    </script>
+  </body>
+</html>
